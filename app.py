@@ -9,7 +9,7 @@ from sentence_transformers import SentenceTransformer
 # Page config
 st.set_page_config(
     page_title="Mental Health Risk Analyzer",
-    page_icon="🧠",
+    # page_icon="🧠",
     layout="wide"
 )
 
@@ -150,14 +150,14 @@ def load_models():
 # ============== MAIN APP ==============
 def main():
     # Header
-    st.title("🧠 Mental Health Risk Analyzer")
+    st.title("Mental Health Risk Analyzer")
     st.markdown("""
     This tool analyzes text for linguistic patterns associated with mental health conditions.
     It provides **risk scores** based on research-backed linguistic markers and **condition predictions** 
     using a BiLSTM deep learning model.
     """)
     
-    st.warning("⚠️ **Disclaimer**: This tool is for educational/research purposes only. It is NOT a clinical diagnostic tool and should never replace professional mental health assessment.")
+    st.warning("**Disclaimer**: This tool is for educational/research purposes only. It is NOT a clinical diagnostic tool and should never replace professional mental health assessment.")
     
     # Load models
     encoder, model, model_loaded, class_names, device = load_models()
@@ -228,12 +228,12 @@ def main():
             
             risk_result = calculate_linguistic_risk(user_text)
             risk_score = risk_result['risk_score']
-            level, emoji, color = get_risk_level(risk_score)
-            
+            level, color = get_risk_level(risk_score)
+
             # Risk score display
             st.markdown(f"""
             <div style="background-color: {color}22; border-left: 5px solid {color}; padding: 20px; border-radius: 5px; margin-bottom: 20px;">
-                <h2 style="margin: 0; color: {color};">{emoji} Risk Level: {level}</h2>
+                <h2 style="margin: 0; color: {color};">Risk Level: {level}</h2>
                 <h1 style="margin: 10px 0; font-size: 48px;">{risk_score}/100</h1>
             </div>
             """, unsafe_allow_html=True)
@@ -263,7 +263,7 @@ def main():
         
         # ============== CONDITION PREDICTION ==============
         with col2:
-            st.header("🎯 Condition Prediction")
+            st.header("Condition Prediction")
             
             if model_loaded and model is not None:
                 # Encode text
