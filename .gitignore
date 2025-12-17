@@ -1,0 +1,41 @@
+# Data - don't commit large files
+data/
+*.csv
+*.pkl
+*.pickle
+
+# Model weights
+results/*.pth
+results/*.pkl
+*.pth
+*.pt
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+logs/
+
+# Streamlit
+.streamlit/secrets.toml
